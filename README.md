@@ -6,6 +6,8 @@ TODO
 
 ## Menu
 
+![preview](https://gitlab.com/Ionshard/foundry-vtt-anvil-menu/raw/master/img/preview.png)
+
 The basis of this module is to add a context menu to the Foundry anvil logo. This module aims to support additional modules developers as well by using the Hooks class in the same way the rest of Foundry.
 
 Included are two sub-modules for Anvil Menu.
