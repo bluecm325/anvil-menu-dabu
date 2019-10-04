@@ -72,7 +72,6 @@
         else {
           game.settings.set('anvil-menu', 'fullscreen.escapeKeyCode', 27);
         }
-        console.log("CONFIG BINDING", selection);
       }
     });
 
@@ -87,8 +86,6 @@
   }
 
   Hooks.on('ready', () => {
-    console.log('Anvil Menu | Initializing Fullscreen Module');
-
     registerSettings();
 
     if (game.settings.get('anvil-menu', 'fullscreen.escapeKey') !== 'no'){
