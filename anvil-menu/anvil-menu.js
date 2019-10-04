@@ -1,33 +1,27 @@
-let anvilMenu;
+(() => {
+  window.AnvilMenu = window.AnvilMenu || {loaded: false, entries: []};
 
-class AnvilMenu extends Application {
-
-  static get defaultOptions() {
-    const options = super.defaultOptions;
-    options.template = "public/modules/anvil-menu/templates/anvil-menu.html";
-    options.popOut = false;
-    return options;
+  if(window.AnvilMenu.loaded) {
+    return;
   }
+  window.AnvilMenu.loaded = true;
 
-  activateListeners(html) {
-    this._contextMenu(html);
-  }
+  console.log('Anvil Menu | Initializing');
 
-  _getEntryContextOptions() {
-    return [];
-  }
+  window.AnvilMenu.registerMenuEntry = entry => {
+    window.AnvilMenu.entries.push(entry);
+  };
 
-  _contextMenu(html) {
-    const entryOptions = this._getEntryContextOptions();
-    Hooks.call(`getAnvilMenuEntryContext`, html, entryOptions);
-    if (entryOptions) new ContextMenu(html, '.anvil-menu-inner', entryOptions);
-  }
-}
+  window.AnvilMenu.registerMenuEntries = entries => entries.forEach(window.AnvilMenu.registerMenuEntry);
 
-Hooks.on('init', () => {
-  console.log('Anvil Menu | Initializing Menu');
-  $('#logo').remove();
-  anvilMenu = new AnvilMenu();
-  anvilMenu.render(true);
-});
+  Hooks.on('init', () => {
+    $('<div id="anvil-menu">')
+      .css('position', 'absolute')
+      .css('top', 12).css('left', 10)
+      .css('width', 100).css('height', 50)
+      .css('z-index', 61)
+      .appendTo($('body'));
+    window.AnvilMenu.contextMenu = new ContextMenu($('body'), '#anvil-menu', window.AnvilMenu.entries);
+  });
+})();
 
