@@ -1,7 +1,7 @@
 image: alpine:latest
 
 before_script:
-  - apt-get update -qq && apt-get install -y -qq zip
+  - apt update -qq && apt add -y -qq zip
 
 make-zip:
   stage: build
