@@ -13,6 +13,7 @@ build-module:
   - mv $MODULE_NAME/module.json $MODULE_NAME/module.base.json
   - jq --arg manifest "$CI_PROJECT_URL/-/jobs/artifacts/$CI_COMMIT_REF_SLUG/raw/module.json?job=build-module" --arg download "$CI_PROJECT_URL/-/jobs/artifacts/$CI_COMMIT_REF_SLUG/raw/$MODULE_NAME.zip?job=build-module" '.manifest = $manifest | .download = $download' $MODULE_NAME/module.base.json > $MODULE_NAME/module.json
   - rm $MODULE_NAME/module.base.json
+  - cp $MODULE_NAME/module.json module.json
   - echo "Building $MODULE_NAME module ZIP file"
   - zip -r $MODULE_NAME.zip $MODULE_NAME
   artifacts:
