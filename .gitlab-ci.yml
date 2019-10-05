@@ -6,13 +6,18 @@ variables:
 before_script:
   - apk update && apk add --no-cache zip jq
 
-zip-module:
+build-module:
   stage: build
   script:
-  - echo 'Building module ZIP file'
-  - zip -r anvil-menu.zip anvil-menu
-  - jq --arg url "$CI_PROJECT_URL" --arg job "$CI_JOB_ID" --arg name "$MODULE_NAME" '.manifest = ($url + "/-/jobs/" + $job + "/artifacts/file/module.json") | .download = ($url + "/-/jobs/" + $job + "/artifacts/file/" + $name + ".zip")' anvil-menu/module.json > module.json
+  - echo "Building $MODULE_NAME module ZIP file"
+  - zip -r "$MODULE_NAME.zip" "$MODULE_NAME"
+  # https://gitlab.com/Ionshard/foundry-vtt-anvil-menu/-/jobs/artifacts/develop/download?job=zip-module
+  - jq --arg manifest "$CI_PROJECT_URL/-/jobs/artifacts/$CI_COMMIT_REF_SLUG/raw/module.json?job=build-module" --arg download "$CI_PROJECT_URL/-/jobs/artifacts/$CI_COMMIT_REF_SLUG/raw/$MODULE_NAME.zip?job=build-module" '.manifest = $manifest | .download = $download' anvil-menu/module.json > module.json
   artifacts:
     paths:
-    - anvil-menu.zip
-    - module.json
+      - $MODULE_NAME.zip
+      - module.json
+  only:
+    refs:
+      - develop
+      - master
