@@ -1,16 +1,22 @@
 # Foundry VTT - Anvil Menu
 
-## Install
-
-TODO
-
 ## Menu
 
 ![preview](https://gitlab.com/Ionshard/foundry-vtt-anvil-menu/raw/master/img/preview.png)
 
 The basis of this repository is to add a context menu to the Foundry anvil logo. This menu is usable by module developers to add their own entries to this menu.
 
-Additionally this is included in a module that uses the Anvil Menu and adds several features.
+Additionally this is included as a module that uses the Anvil Menu and adds several features.
+
+## Install
+
+### Foundry Add-On Module Installation
+
+Use the link [https://gitlab.com/Ionshard/foundry-vtt-anvil-menu/-/jobs/artifacts/master/raw/module.json?job=build-module](https://gitlab.com/Ionshard/foundry-vtt-anvil-menu/-/jobs/artifacts/master/raw/module.json?job=build-module) as the Manifest URL via Foundry's Add-On Module Configuration.
+
+### Manual Install
+
+Download the [anvil-menu.zip](https://gitlab.com/Ionshard/foundry-vtt-anvil-menu/-/jobs/artifacts/master/raw/anvil-menu.zip?job=build-module) module and extract it in your `resources/app/public/modules` directory.
 
 ## Anvil Menu Module
 
@@ -22,6 +28,8 @@ Additionally, to support the fullscreen mode, this sub-module will allow rebindi
 
 This is because the browser will use the Escape key to exit fullscreen mode.
 
+This option is disabled by default. Ensure you enable the fullscreen mode in the Module Settings.
+
 ### Display Mode
 
 Inspired by [Sly3r86's Display Mode](https://github.com/syl3r86/displaymode) module. This sub-module adds the ability to toggle the visibility of the following on screen elements:
@@ -30,6 +38,8 @@ Inspired by [Sly3r86's Display Mode](https://github.com/syl3r86/displaymode) mod
 * Controls
 * Sidebar
 * Players
+
+This option is disabled by default. Ensure you enable the display mode in the Module Settings.
 
 ## Module Developers
 
