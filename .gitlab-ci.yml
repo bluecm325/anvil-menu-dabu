@@ -1,13 +1,18 @@
 image: alpine:latest
 
+variables:
+  MODULE_NAME: "anvil-menu"
+
 before_script:
-  - apk update && apk add --no-cache zip
+  - apk update && apk add --no-cache zip jq
 
 zip-module:
   stage: build
   script:
   - echo 'Building module ZIP file'
   - zip -r anvil-menu.zip anvil-menu
+  - jq --arg url "$CI_PROJECT_URL" --arg job "$CI_JOB_ID" --arg name "$MODULE_NAME" '.manifest = ($url + "/-/jobs/" + $job + "/artifacts/file/module.json") | .download = ($url + "/-/jobs/" + $job + "/artifacts/file/" + $name + ".zip")' anvil-menu/module.json > module.json
   artifacts:
     paths:
     - anvil-menu.zip
+    - module.json
