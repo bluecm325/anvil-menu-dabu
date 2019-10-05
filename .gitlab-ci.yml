@@ -7,7 +7,7 @@ make-zip:
   stage: build
   script:
   - echo 'Building module ZIP file'
-  - zip -r anvil-menu.zip anvil-menu.zip
+  - zip -r anvil-menu.zip anvil-menu
   artifacts:
     paths:
     - anvil-menu.zip
