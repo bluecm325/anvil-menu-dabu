@@ -2,10 +2,11 @@
   "name": "anvil-menu",
   "title": "Anvil Menu",
   "description": "Add's a context menu on the Foundry Anvil Logo.",
-  "version": "0.1",
+  "version": "0.2",
   "author": "Victor Ling <victor.ling@ionshard.com>",
   "scripts": [
     "anvil-menu.js",
+    "anvil-menu-foundry-menu.js",
     "anvil-menu-fullscreen.js",
     "anvil-menu-displaymode.js"
   ],
