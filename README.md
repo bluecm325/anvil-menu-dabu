@@ -20,6 +20,10 @@ Download the [anvil-menu.zip](https://gitlab.com/Ionshard/foundry-vtt-anvil-menu
 
 ## Anvil Menu Module
 
+### Foundry Menu
+
+This sub-module is enabled by default and it adds a menu option to the anvil-menu that allows you to open Foundry's application menu. Normally opened via the Escape key.
+
 ### Fullscreen
 
 This sub-module adds the ability to put Foundry VTT into Fullscreen mode. This is option is added to the Anvil Menu.
