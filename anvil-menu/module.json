@@ -11,5 +11,7 @@
     "anvil-menu-displaymode.js"
   ],
   "styles": [],
-  "packs": []
+  "packs": [],
+  "manifest": "",
+  "download": "https://github.com/bluecm325/anvil-menu-dabu.git"
 }
