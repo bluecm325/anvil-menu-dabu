@@ -12,6 +12,6 @@
   ],
   "styles": [],
   "packs": [],
-  "manifest": "",
+  "manifest": "https://github.com/bluecm325/anvil-menu-dabu/raw/master/anvil-menu/module.json",
   "download": "https://github.com/bluecm325/anvil-menu-dabu.git"
 }
